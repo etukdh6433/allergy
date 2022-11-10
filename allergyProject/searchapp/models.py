@@ -12,8 +12,6 @@ class Product(models.Model):
     rawmtrl = models.TextField()
     allergy = models.TextField()
     manufacture = models.CharField(max_length=200)
-    nutrient = models.TextField(blank=True)
-    seller = models.CharField(max_length=200, blank=True)
     image = models.ImageField(null=True, blank=True)
     
     def __str__(self):
