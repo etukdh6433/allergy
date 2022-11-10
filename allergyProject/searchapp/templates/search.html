@@ -75,191 +75,76 @@
        </div>
      </div>
      <!-- end header inner -->
-     
      <br>
+     <br>
+     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div style="margin: 100px 0px 0px 250px;">
+        <form class="Vegetable" action="{% url 'searchapp:searchResult' %}" method="get">
+          <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
+          <button class="Search_btn" type="submit">검색</button>
+          <br>
+          <div class="form-check" style="display:flex; background-color: rgb(214, 239, 255); width: 60%; box-shadow: #b0b0b0 0px 0px 9px 0px; height: 40px;">
+            <!-- <div> -->
+            <div style="margin-right:10px;">알레르기</div>
+            <!-- 아래의 코드를 반복하면 필터목록 추가 -->
+            <input type="checkbox" name="afilter" value="새우">
+            <label id="formcheck" class="form-check-label" for="flexCheckDefault">
+              새우
+            </label>
+            <br>
+            <input type="checkbox" name="afilter" value="아몬드">
+            <label class="form-check-label" for="flexCheckDefault">
+              아몬드
+            </label>
+            <br>
+            <input type="checkbox" name="afilter" value="대두">
+            <label class="form-check-label" for="flexCheckDefault">
+              대두
+            </label>
+            <br>
+            <input type="checkbox" name="afilter" value="닭고기">
+            <label class="form-check-label" for="flexCheckDefault">
+              닭고기
+            </label>
+          </div>
+          <!-- </div> -->
+          <!-- <button class="btn btn-primary" type="submit">submit</button> -->
+      </form>
+        
+      </div>   
+    </div>
 
-    
 
      <!-- about  -->
      <div id="about" class="about">
        <div class="container-fluid" style="padding-left: 255px;">
-         <div class="wrapper">
-           <!--categories -->
-           <div class="sidebar">
-              <!--kind of allergy and purposes-->
-              <form class="Filter" action="{% url 'searchapp:searchResult' %}" method="get">
-               <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
-               <br>
-               <br>
-               <!-- <div> -->
-               <div>알레르기</div>
-                <!-- 아래의 코드를 반복하면 필터목록 추가 -->
-                <input type="checkbox" name="afilter" value="새우">
-                <label class="form-check-label" for="flexCheckDefault">
-                  새우
-                </label>
-                <br>
-                <input type="checkbox" name="afilter" value="아몬드">
-                <label class="form-check-label" for="flexCheckDefault">
-                  아몬드
-                </label>
-                <br>
-                <input type="checkbox" name="afilter" value="대두">
-                <label class="form-check-label" for="flexCheckDefault">
-                  대두
-                </label>
-                <br>
-                <input type="checkbox" name="afilter" value="닭고기">
-                <label class="form-check-label" for="flexCheckDefault">
-                  닭고기
-                </label>
-                <br>
-                <br>
-               <!-- </div> -->
-               <button class="btn btn-primary" type="submit">submit</button>
-           </form>
-             <!-- <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 난류
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 소고기
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 새우
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 어패류
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 대두
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 유제품
-               </label>
-             </div>  -->
-             <!-- <br> -->
-             <!-- <div>목적</div>
-              <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 다이어트
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 일상
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 초간편
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 파티
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 도시락
-               </label>
-             </div>
-             <div class="form-check">
-               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-               <label class="form-check-label" for="flexCheckDefault">
-                 유아
-               </label>
-             </div> -->
-             
-               <!--menu item-->
-           </div>
-         </div>
+         <h3>검색결과 출력 - 검색어 : <b>{{ query }}</b><b> ->제외 성분 #{{ afilter }}</b></h3>
          <div class="row" style="border-bottom:dashed;">
-           </div>
-           <h3>검색결과 출력 - 검색어 : <b>"{{ query }}"</b><b>"{{ afilter }}"</b></h3>
-           {% for product in products %}
+            {% for product in products %}
              <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
-             <div class="card" style="width: 18rem;">
-     
-               <a href="../detail/?pk={{product.prdlstReportNo}}"><img class="card-img-top" src="{{product.image}}"></a>
-               <div class="card-body">
-               <h4 class="card-text">{{product.prdlstNm}}</h4>
-               <p class="card-text">{{product.prdkind}}</p>
-               </div>
-             </div>    
-             {% empty %}
-               <h4>결과 없음</h4>
-           {% endfor %}
-         </div>
-        <!-- <div class="row">
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3" >
-            <div class="about-box">
-              <h2>검색된 게시판</h2>
-                <div class="about-box_img">
-                  <figure><img src="{% static 'images/about.jpg' %}" alt="#" /></figure>
-                </div>
-            </div>
+             
+              <div class="card" style="width: 18rem;display: flex; margin:15px;">
+      
+                <a href="../detail/?pk={{product.prdlstReportNo}}"><img class="card-img-top" src="{{product.image}}" style="height:285px;"></a>
+                  <div class="card-body">
+                    <h4 class="card-text">{{product.prdlstNm}}</h4>
+                    <p class="card-text">{{product.prdkind}}</p>
+                  </div>
+              </div>    
+                {% empty %}
+                  <h4>결과 없음</h4>
+                {% endfor %}
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-            <div class="about-box">
-                <div class="about-box_img" style="padding-top:15%;">
-                  <figure><img src="{% static 'images/about.jpg' %}" alt="#" /></figure>
-                </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-            <div class="about-box">
-                <div class="about-box_img" style="padding-top:15%;">
-                  <figure><img src="{% static 'images/about.jpg' %}" alt="#" /></figure>
-                </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-            <div class="about-box">
-                <div class="about-box_img" style="padding-top:15%;">
-                  <figure><img src="{% static 'images/about.jpg' %}" alt="#" /></figure>
-                </div>
-                <div style="text-align:right;margin-right:5%;">
-                <a href="{% static 'Javascript:void(0)' %}" class="btn_open">더보기</a>
-                </div>
-            </div>
-          </div>
-        </div>  -->
       </div>
     </div>
     <!-- end abouts -->
 
 
-    <!--  footer -->
-    <footr>
+     <!--  footer -->
+     <footr>
       <div class="footer ">
         <div class="container">
           <div class="row">
-            <div class="col-md-12">
-             <a href="#" class="logo_footer"> <img src="{% static 'images/logo2.png' %}" alt="#"/></a>
-            </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
               <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
@@ -267,12 +152,10 @@
                     <h3>Address </h3>
                     <ul class="loca">
                       <li>
-                        <a href="#"></a>It is a long established fact 
-                        <br>that a reader will be  </li>
+                        <a href="#"></a>충청북도 청주시 서원구 충대로 1
+                        <br>전자정보대학  </li>
                         <li>
-                          <a href="#"></a>(+71 1234567890) </li>
-                          <li>
-                            <a href="#"></a>demo@gmail.com</li>
+                          <a href="#"></a>(+82 9***7***) </li>
                           </ul>
                         </div>
                       </div>
@@ -283,7 +166,6 @@
                             <li class="active"> <a href="#">Twitter</a> </li>
                             <li><a href="#">Facebook</a> </li>
                             <li><a href="#">Instagram</a> </li>
-                            <li><a href="#">Linkdin</a> </li>
                           </ul>
                         </div>
                       </div>
@@ -291,10 +173,10 @@
 
                       <div class="col-lg-4 col-md-6 col-sm-6 ">
                         <div class="address">
-                          <h3>Newsletter</h3>
+                          <h3>공지사항</h3>
                            <form class="news">
                            <input class="newslatter" placeholder="Enter your email" type="text" name=" Enter your email">
-                            <button class="submit">Subscribe</button>
+                            <button class="submit">click</button>
                             </form>
                         </div>
                       </div>
@@ -306,10 +188,10 @@
               </div>
               <div class="copyright">
                 <div class="container">
-                  <p>Copyright © 2019 Design by <a href="https://html.design/">Free Html Templates </a></p>
                 </div>
               </div>
             </div>
+            
           </footr>
           <!-- end footer -->
            <!-- Javascript files-->

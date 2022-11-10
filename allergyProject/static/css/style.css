@@ -352,7 +352,7 @@
  .logo {
      float: left;
      
-     padding-bottom: 6px;
+     padding-bottom: 10%;
 }
  nav.main-menu {
      float: left;
@@ -1036,7 +1036,7 @@ font-weight: bold;
 
 .Vegetable  {padding-bottom: 50px;}
 .Vegetable .Vegetable_fom {
-     padding: 15px 30px;
+     padding: 20px 30px;
      box-shadow: inherit;
      border: inherit;
      width: 60%;
@@ -1211,6 +1211,13 @@ border-radius: 30px;
 }
 .padding_rl {padding: 0;}
 /** end about section **/
+
+input[type="checkbox"] {
+    width: 20px; 
+    height: 20px; 
+    margin: 5px;
+  }
+
 
 
 /** vegetable section **/

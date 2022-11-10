@@ -77,16 +77,44 @@
      <!-- end header inner -->
      
      <br>
-
      <br>
+
      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-       <div style="margin: 100px 30% 0px;">
-         <form class="Vegetable">
-           <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name=" Vegetable">
-           <button class="Search_btn">Search</button>
-         </form>
-       </div>   
-     </div>
+      <div style="margin: 100px 0px 0px 250px;">
+        <form class="Vegetable" action="{% url 'searchapp:searchResult' %}" method="get">
+          <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
+          <button class="Search_btn" type="submit">검색</button>
+          <br>
+          <div class="form-check" style="display:flex; background-color: rgb(214, 239, 255); width: 60%; box-shadow: #b0b0b0 0px 0px 9px 0px; height: 40px;">
+            <!-- <div> -->
+            <div style="margin-right:10px;">알레르기</div>
+            <!-- 아래의 코드를 반복하면 필터목록 추가 -->
+            <input type="checkbox" name="afilter" value="새우">
+            <label id="formcheck" class="form-check-label" for="flexCheckDefault">
+              새우
+            </label>
+            <br>
+            <input type="checkbox" name="afilter" value="아몬드">
+            <label class="form-check-label" for="flexCheckDefault">
+              아몬드
+            </label>
+            <br>
+            <input type="checkbox" name="afilter" value="대두">
+            <label class="form-check-label" for="flexCheckDefault">
+              대두
+            </label>
+            <br>
+            <input type="checkbox" name="afilter" value="닭고기">
+            <label class="form-check-label" for="flexCheckDefault">
+              닭고기
+            </label>
+          </div>
+          <!-- </div> -->
+          <!-- <button class="btn btn-primary" type="submit">submit</button> -->
+      </form>
+        
+      </div>   
+    </div>
 
      
 <!-- about  -->
@@ -95,15 +123,16 @@
     <div class="row">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
         <div class="about-box_img">
-          <figure><img src="{{detail.image}}" alt="#" /></figure>
+          <figure><img src="{{detail.image}}" alt="#" style="width:90%; height:90%;" /></figure>
         </div>
       </div>
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="about-box">
           <h2>{{detail.prdlstNm}}</h2>
-          <p>{{detail.rawmtrl}}</p>
+          <p>세부 재료 : {{detail.rawmtrl}}</p>
+          <p>알러지 성분 : {{detail.allergy}}</p>
           <div class="about-box_img">
-            <figure><img src="images/shop.png" alt="#" /></figure>
+            <figure><a href="https://www.coupang.com/np/search?component=&q={{detail.prdlstNm}}{{detail.manufacture}}&channel=user">판매 사이트</a></figure>
           </div>
         </div>
       </div>
@@ -119,9 +148,6 @@
       <div class="footer ">
         <div class="container">
           <div class="row">
-            <div class="col-md-12">
-             <a href="#" class="logo_footer"> <img src="{% static 'images/logo2.png' %}" alt="#"/></a>
-            </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
               <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
@@ -129,12 +155,10 @@
                     <h3>Address </h3>
                     <ul class="loca">
                       <li>
-                        <a href="#"></a>It is a long established fact 
-                        <br>that a reader will be  </li>
+                        <a href="#"></a>충청북도 청주시 서원구 충대로 1
+                        <br>전자정보대학  </li>
                         <li>
-                          <a href="#"></a>(+71 1234567890) </li>
-                          <li>
-                            <a href="#"></a>demo@gmail.com</li>
+                          <a href="#"></a>(+82 9***7***) </li>
                           </ul>
                         </div>
                       </div>
@@ -145,7 +169,6 @@
                             <li class="active"> <a href="#">Twitter</a> </li>
                             <li><a href="#">Facebook</a> </li>
                             <li><a href="#">Instagram</a> </li>
-                            <li><a href="#">Linkdin</a> </li>
                           </ul>
                         </div>
                       </div>
@@ -153,10 +176,10 @@
 
                       <div class="col-lg-4 col-md-6 col-sm-6 ">
                         <div class="address">
-                          <h3>Newsletter</h3>
+                          <h3>공지사항</h3>
                            <form class="news">
                            <input class="newslatter" placeholder="Enter your email" type="text" name=" Enter your email">
-                            <button class="submit">Subscribe</button>
+                            <button class="submit">click</button>
                             </form>
                         </div>
                       </div>
@@ -168,7 +191,6 @@
               </div>
               <div class="copyright">
                 <div class="container">
-                  <p>Copyright © 2019 Design by <a href="https://html.design/">Free Html Templates </a></p>
                 </div>
               </div>
             </div>
