@@ -8,11 +8,30 @@ from django.db.models import Q
 
 def searchResult(request):
     # global query
-    if 'kw' in request.GET:
+    if ('kw' in request.GET) and ('afilter' in request.GET):
+        query = request.GET.get('kw')
+        afilter = request.GET.getlist('afilter')
+        for i in afilter:
+            products = Product.objects.all().filter(
+                (Q(prdlstNm__icontains=query) |
+                Q(prdkind__icontains=query)) &
+                ~Q(allergy__icontains=i)
+            )
+        return render(request, 'search.html', {'query':query, 'afilter':afilter, 'products':products} )
+    
+    elif ('kw' in request.GET):
         query = request.GET.get('kw')
         products = Product.objects.all().filter(
             Q(prdlstNm__icontains=query) |
             Q(prdkind__icontains=query)
-        )  
+        )
+        return render(request, 'search.html', {'query':query, 'products':products} )
+    
+    elif ('afilter' in request.GET):
+        afilter = request.GET.getlist('afilter')
+        for i in afilter:
+            products = Product.objects.all().filter(
+                ~Q(allergy__icontains=i)
+            )
 
-    return render(request, 'search.html', {'query':query, 'products':products} )      
+        return render(request, 'search.html', {'query':query, 'afilter':afilter, 'products':products} )

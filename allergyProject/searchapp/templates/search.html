@@ -76,129 +76,125 @@
      </div>
      <!-- end header inner -->
      
-    <br>
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <div style="margin: 100px 30% 10px;">
-        <form class="Vegetable" action="{% url 'searchapp:searchResult' %}" method="get">
-          <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
-          <button class="Search_btn">search</button>
-          
-        </form>
-      </div>   
-    </div>
+     <br>
 
     
 
-    <!-- about  -->
-    <div id="about" class="about">
-      <div class="container-fluid" style="padding-left: 225px;">
-        <div class="wrapper">
-          <!--categories -->
-          <div class="sidebar">
-             <!--kind of allergy and purposes-->
-             <div>알레르기</div>
+     <!-- about  -->
+     <div id="about" class="about">
+       <div class="container-fluid" style="padding-left: 255px;">
+         <div class="wrapper">
+           <!--categories -->
+           <div class="sidebar">
+              <!--kind of allergy and purposes-->
+              <form class="Filter" action="{% url 'searchapp:searchResult' %}" method="get">
+               <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
+               <!-- <div> -->
+               <div>알레르기</div>
+               <!-- 아래의 코드를 반복하면 필터목록 추가 -->
+               <input type="checkbox" name="afilter" value="아몬드">
+               <label class="form-check-label" for="flexCheckDefault">
+                 아몬드
+               </label>
+               <!-- </div> -->
+               <button class="btn btn-primary" type="submit">submit</button>
+           </form>
+             <!-- <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 난류
+               </label>
+             </div>
              <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                땅콩
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                난류
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                소고기
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                새우
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                어패류
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                대두
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                유제품
-              </label>
-            </div> 
-            <br>
-            <div>목적</div>
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 소고기
+               </label>
+             </div>
              <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                다이어트
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                일상
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                초간편
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                파티
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                도시락
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                유아
-              </label>
-            </div>
-            
-              <!--menu item-->
-          </div>
-        </div>
-        <div class="row" style="border-bottom:dashed;">
-          </div>
-          <h3>검색결과 출력 - 검색어 : <b>"{{ query }}"</b></h3>
-          {% for product in products %}
-            <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
-            <div class="card" style="width: 18rem;">
-    
-              <a href="../product/{{product.prdlstReportNm}}"><img class="card-img-top" src="{{product.image}}"></a>
-              <div class="card-body">
-              <h4 class="card-text">{{product.prdlstNm}}</h4>
-              <p class="card-text">{{product.prdkind}}</p>
-              </div>
-            </div>    
-            {% empty %}
-              <h4>결과 없음</h4>
-          {% endfor %}
-        </div>
-        <div class="row">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 새우
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 어패류
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 대두
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 유제품
+               </label>
+             </div>  -->
+             <!-- <br> -->
+             <!-- <div>목적</div>
+              <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 다이어트
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 일상
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 초간편
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 파티
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 도시락
+               </label>
+             </div>
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+               <label class="form-check-label" for="flexCheckDefault">
+                 유아
+               </label>
+             </div> -->
+             
+               <!--menu item-->
+           </div>
+         </div>
+         <div class="row" style="border-bottom:dashed;">
+           </div>
+           <h3>검색결과 출력 - 검색어 : <b>"{{ query }}"</b><b>"{{ afilter }}"</b></h3>
+           {% for product in products %}
+             <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
+             <div class="card" style="width: 18rem;">
+     
+               <a href="../product/{{product.prdlstReportNm}}"><img class="card-img-top" src="{{product.image}}"></a>
+               <div class="card-body">
+               <h4 class="card-text">{{product.prdlstNm}}</h4>
+               <p class="card-text">{{product.prdkind}}</p>
+               </div>
+             </div>    
+             {% empty %}
+               <h4>결과 없음</h4>
+           {% endfor %}
+         </div>
+        <!-- <div class="row">
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3" >
             <div class="about-box">
               <h2>검색된 게시판</h2>
@@ -231,7 +227,7 @@
                 </div>
             </div>
           </div>
-        </div> 
+        </div>  -->
       </div>
     </div>
     <!-- end abouts -->
