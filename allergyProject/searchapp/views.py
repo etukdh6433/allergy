@@ -37,3 +37,11 @@ def searchResult(request):
             Q(prdkind__icontains=query)
         )
         return render(request, 'search.html', {'query':query, 'products':products} )
+
+def Detail(request):
+    if ('name' in request.GET):
+        name = request.GET.get('name')
+        product = Product.objects.all().filter(
+            Q(prdlstNm__iexact=name)
+        )
+        return render(request, 'detail.html', {'name':name, 'product':product})
