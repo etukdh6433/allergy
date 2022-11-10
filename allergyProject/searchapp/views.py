@@ -25,13 +25,14 @@ def searchResult(request):
         query = request.GET.get('kw')
         afilter = request.GET.getlist('afilter')
         list = afilter.copy()
-        products = Product.objects.all()
+        products = Product.objects.all().order_by('prdlstNm')
         products = filtering(products, list, query)
         return render(request, 'search.html', {'query':query, 'afilter':afilter, 'products':products} )
     
     elif ('kw' in request.GET):
         query = request.GET.get('kw')
-        products = Product.objects.all().filter(
+        products = Product.objects.all().order_by('prdlstNm')
+        products = products.filter(
             Q(prdlstNm__icontains=query) |
             Q(prdkind__icontains=query)
         )
