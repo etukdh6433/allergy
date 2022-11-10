@@ -38,10 +38,12 @@ def searchResult(request):
         )
         return render(request, 'search.html', {'query':query, 'products':products} )
 
+
 def Detail(request):
-    if ('name' in request.GET):
-        name = request.GET.get('name')
-        product = Product.objects.all().filter(
-            Q(prdlstNm__iexact=name)
+    if ('pk' in request.GET):
+        pk = request.GET.get('pk')
+        detail = Product.objects.all()
+        detail = detail.get(
+            Q(prdlstReportNo__exact=pk)
         )
-        return render(request, 'detail.html', {'name':name, 'product':product})
+        return render(request, 'detail.html', {'pk':pk, 'detail':detail})
