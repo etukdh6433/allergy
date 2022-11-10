@@ -89,13 +89,27 @@
               <!--kind of allergy and purposes-->
               <form class="Filter" action="{% url 'searchapp:searchResult' %}" method="get">
                <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
+               <br>
+               <br>
                <!-- <div> -->
                <div>알레르기</div>
-               <!-- 아래의 코드를 반복하면 필터목록 추가 -->
-               <input type="checkbox" name="afilter" value="아몬드">
-               <label class="form-check-label" for="flexCheckDefault">
-                 아몬드
-               </label>
+                <!-- 아래의 코드를 반복하면 필터목록 추가 -->
+                <input type="checkbox" name="afilter" value="새우">
+                <label class="form-check-label" for="flexCheckDefault">
+                  새우
+                </label>
+                <br>
+                <input type="checkbox" name="afilter" value="아몬드">
+                <label class="form-check-label" for="flexCheckDefault">
+                  아몬드
+                </label>
+                <br>
+                <input type="checkbox" name="afilter" value="대두">
+                <label class="form-check-label" for="flexCheckDefault">
+                  대두
+                </label>
+                <br>
+                <br>
                <!-- </div> -->
                <button class="btn btn-primary" type="submit">submit</button>
            </form>

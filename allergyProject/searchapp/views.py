@@ -26,12 +26,3 @@ def searchResult(request):
             Q(prdkind__icontains=query)
         )
         return render(request, 'search.html', {'query':query, 'products':products} )
-    
-    elif ('afilter' in request.GET):
-        afilter = request.GET.getlist('afilter')
-        for i in afilter:
-            products = Product.objects.all().filter(
-                ~Q(allergy__icontains=i)
-            )
-
-        return render(request, 'search.html', {'query':query, 'afilter':afilter, 'products':products} )
